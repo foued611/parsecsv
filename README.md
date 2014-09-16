@@ -15,12 +15,16 @@ and third-party support for handling CSV data in PHP.
 ## Installation
 Installation is easy using Composer. Include the following in your composer.json
 ```
-"parsecsv/php-parsecsv": "0.4.5"
+ "foued611/parsecsv": "2.0"
 ```
 
 You may also manually include the parsecsv.lib.php file
 ```php
-require_once 'parsecsv.lib.php';
+require_once 'Parse/csv/ParseCSV.php';
+```
+or psr-0 autoloading
+```php
+use Parse\Csv\ParseCSV;
 ```
 
 ## Features
