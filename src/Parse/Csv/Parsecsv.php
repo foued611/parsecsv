@@ -1,7 +1,8 @@
 <?php
 namespace Parse\Csv;
 
-class ParseCSV
+
+class ParseCSV implements ParseInterface
 {
 
     /*
