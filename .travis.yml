@@ -12,6 +12,6 @@ script:
 
 notifications:
   email:
-    - will.knauss@gmail.com
+    - foued@dghaies.de
   on_success: never
   on_failure: always

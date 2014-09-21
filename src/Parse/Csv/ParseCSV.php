@@ -1,87 +1,42 @@
 <?php
 namespace Parse\Csv;
 
+/*
+   Class: parseCSV v2.0.2 beta
+   https://github.com/foued611/parsecsv
+
+   Fully conforms to the specifications lined out on wikipedia:
+    - http://en.wikipedia.org/wiki/Comma-separated_values
+
+   Based on the concept of Ming Hong Ng's CsvFileParser class:
+    - http://minghong.blogspot.com/2006/07/csv-parser-for-php.html
+
+
+   (The MIT license)
+
+   Copyright (c) 2014 Jim Myhrberg.
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+   */
 
 class ParseCSV implements ParseInterface
 {
-
-    /*
-    Class: parseCSV v0.4.3 beta
-    https://github.com/parsecsv/parsecsv-for-php
-
-    Fully conforms to the specifications lined out on wikipedia:
-     - http://en.wikipedia.org/wiki/Comma-separated_values
-
-    Based on the concept of Ming Hong Ng's CsvFileParser class:
-     - http://minghong.blogspot.com/2006/07/csv-parser-for-php.html
-
-
-    (The MIT license)
-
-    Copyright (c) 2014 Jim Myhrberg.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
-
-
-    Code Examples
-    ----------------
-    # general usage
-    $csv = new parseCSV('data.csv');
-    print_r($csv->data);
-    ----------------
-    # tab delimited, and encoding conversion
-    $csv = new parseCSV();
-    $csv->encoding('UTF-16', 'UTF-8');
-    $csv->delimiter = "\t";
-    $csv->parse('data.tsv');
-    print_r($csv->data);
-    ----------------
-    # auto-detect delimiter character
-    $csv = new parseCSV();
-    $csv->auto('data.csv');
-    print_r($csv->data);
-    ----------------
-    # modify data in a csv file
-    $csv = new parseCSV();
-    $csv->sort_by = 'id';
-    $csv->parse('data.csv');
-    # "4" is the value of the "id" column of the CSV row
-    $csv->data[4] = array('firstname' => 'John', 'lastname' => 'Doe', 'email' => 'john@doe.com');
-    $csv->save();
-    ----------------
-    # add row/entry to end of CSV file
-    #  - only recommended when you know the extact sctructure of the file
-    $csv = new parseCSV();
-    $csv->save('data.csv', array(array('1986', 'Home', 'Nowhere', '')), true);
-    ----------------
-    # convert 2D array to csv data and send headers
-    # to browser to treat output as a file and download it
-    $csv = new parseCSV();
-    $csv->output('movies.csv', $array, array('field 1', 'field 2'), ',');
-    ----------------
-    */
-
-    /**
-     * Configuration
-     * - set these options with $object->var_name = 'value';
-     */
-
     /**
      * Heading
      * Use first line/entry as field names

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-    bootstrap="Bootstrap.php"
-    colors="false"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    stopOnError="true"
-    stopOnFailure="true"
-    stopOnIncomplete="true"
-    stopOnSkipped="false">
+        bootstrap="Bootstrap.php"
+        colors="false"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        stopOnError="true"
+        stopOnFailure="true"
+        stopOnIncomplete="true"
+        stopOnSkipped="false">
     <testsuites>
-        <testsuite name="parseCSV Test Suite">
+        <testsuite name="ParseCSV Test Suite">
             <directory suffix="test.php">properties/</directory>
             <directory suffix="test.php">methods/</directory>
         </testsuite>

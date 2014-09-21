@@ -1,13 +1,15 @@
 <pre>
 <?php
-
-
+# include the Parse Interface
+require_once('../src/Parse/Csv/ParseInterface.php');
 # include parseCSV class.
-require_once('../parsecsv.lib.php');
+require_once('../src/Parse/Csv/ParseCSV.php');
 
+# OR use namespace autoloading
+//use Parse\Csv\ParseCSV;
 
 # create new parseCSV object.
-$csv = new parseCSV();
+$csv = new \Parse\Csv\ParseCSV();
 
 
 # Parse '_books.csv' using automatic delimiter detection...
@@ -28,21 +30,29 @@ $csv->auto('_books.csv');
 ?>
 </pre>
 <style type="text/css" media="screen">
-	table { background-color: #BBB; }
-	th { background-color: #EEE; }
-	td { background-color: #FFF; }
+    table {
+        background-color: #BBB;
+    }
+
+    th {
+        background-color: #EEE;
+    }
+
+    td {
+        background-color: #FFF;
+    }
 </style>
 <table border="0" cellspacing="1" cellpadding="3">
-	<tr>
-		<?php foreach ($csv->titles as $value): ?>
-		<th><?php echo $value; ?></th>
-		<?php endforeach; ?>
-	</tr>
-	<?php foreach ($csv->data as $key => $row): ?>
-	<tr>
-		<?php foreach ($row as $value): ?>
-		<td><?php echo $value; ?></td>
-		<?php endforeach; ?>
-	</tr>
-	<?php endforeach; ?>
+    <tr>
+        <?php foreach ($csv->titles as $value): ?>
+            <th><?php echo $value; ?></th>
+        <?php endforeach; ?>
+    </tr>
+    <?php foreach ($csv->data as $key => $row): ?>
+        <tr>
+            <?php foreach ($row as $value): ?>
+                <td><?php echo $value; ?></td>
+            <?php endforeach; ?>
+        </tr>
+    <?php endforeach; ?>
 </table>

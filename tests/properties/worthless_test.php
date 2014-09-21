@@ -1,6 +1,8 @@
 <?php
+use Parse\Csv\ParseCSV;
 
-class worthless_properties_Test extends PHPUnit_Framework_TestCase {
+class worthless_properties_Test extends PHPUnit_Framework_TestCase
+{
     /**
      * CSV
      * The parseCSV object
@@ -33,9 +35,10 @@ class worthless_properties_Test extends PHPUnit_Framework_TestCase {
      *
      * @access public
      */
-    public function setUp() {
+    public function setUp()
+    {
         //setup parse CSV
-        $this->csv = new parseCSV();
+        $this->csv = new ParseCSV();
 
         //setup the reflection class
         $this->reflection = new ReflectionClass($this->csv);
@@ -50,7 +53,8 @@ class worthless_properties_Test extends PHPUnit_Framework_TestCase {
      *
      * @access public
      */
-    public function tearDown() {
+    public function tearDown()
+    {
         $this->csv = null;
         $this->reflection = null;
         $this->properties = null;
@@ -63,8 +67,9 @@ class worthless_properties_Test extends PHPUnit_Framework_TestCase {
      *
      * @access public
      */
-    public function test_propertiesCount() {
-        $this->assertCount(27,$this->properties);
+    public function test_propertiesCount()
+    {
+        $this->assertCount(27, $this->properties);
     }
 
     /**
@@ -76,7 +81,8 @@ class worthless_properties_Test extends PHPUnit_Framework_TestCase {
      *
      * @access public
      */
-    public function test_property_names() {
+    public function test_property_names()
+    {
         //set our expected properties name(s)
         $names = array(
             'heading',
@@ -110,16 +116,16 @@ class worthless_properties_Test extends PHPUnit_Framework_TestCase {
 
         //find our real properties
         $real_properties = array();
-        for ($a=0; $a<count($this->properties); $a++) {
+        for ($a = 0; $a < count($this->properties); $a++) {
             $real_properties[] = $this->properties[$a]->getName();
         }
 
         //lets make sure our expected matches the number of real properties
-        $this->assertCount(count($names),$this->properties);
+        $this->assertCount(count($names), $this->properties);
 
         //lets loop through our expected to make sure they exists
-        for ($a=0; $a<count($names); $a++) {
-            $this->assertTrue(in_array($names[$a],$real_properties));
+        for ($a = 0; $a < count($names); $a++) {
+            $this->assertTrue(in_array($names[$a], $real_properties));
         }
     }
 
@@ -130,15 +136,16 @@ class worthless_properties_Test extends PHPUnit_Framework_TestCase {
      *
      * @access public
      */
-    public function test_count_public_properties() {
+    public function test_count_public_properties()
+    {
         $counter = 0;
 
-        for ($a=0; $a<count($this->properties); $a++) {
+        for ($a = 0; $a < count($this->properties); $a++) {
             if ($this->properties[$a]->isPublic() === true) {
                 $counter++;
             }
         }
 
-        $this->assertCount($counter,$this->properties);
+        $this->assertCount($counter, $this->properties);
     }
 }

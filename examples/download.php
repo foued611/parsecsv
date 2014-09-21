@@ -1,12 +1,17 @@
 <?php
 
 
+# include the Parse Interface
+require_once('../src/Parse/Csv/ParseInterface.php');
 # include parseCSV class.
-require_once('../parsecsv.lib.php');
+require_once('../src/Parse/Csv/ParseCSV.php');
+
+# OR use namespace autoloading
+//use Parse\Csv\ParseCSV;
 
 
 # create new parseCSV object.
-$csv = new parseCSV();
+$csv = new \Parse\Csv\ParseCSV();
 
 
 # Parse '_books.csv' using automatic delimiter detection...
