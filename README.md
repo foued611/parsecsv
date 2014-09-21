@@ -1,4 +1,6 @@
 # parseCSV
+<a href='https://travis-ci.org/foued611/parsecsv' ><img  src='https://travis-ci.org/foued611/parsecsv.svg?branch=master'></a>
+
 
 Note: parseCSV is now being revised to PHP 5 standards. If you have an issue or a feature request we encourage you to open an issue.
 
