@@ -22,6 +22,13 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*"
+        "squizlabs/php_codesniffer": "@stable",
+        "sebastian/phpcpd": "@stable",
+        "sebastian/phpdcd": "@stable",
+        "phpunit/phpunit": "@stable",
+        "phpmd/phpmd": "@stable",
+        "pdepend/pdepend": "@stable",
+        "phploc/phploc": "@stable",
+        "mayflower/php-codebrowser": "@stable"
     }
 }
